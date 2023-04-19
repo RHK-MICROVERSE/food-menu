@@ -13,4 +13,5 @@ npx hint .
 npx eslint .
 npx lint .
 npx stylelint "**/*.{css,scss}"
+npm install -g lighthouse
 

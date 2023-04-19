@@ -130,3 +130,6 @@ out
 
 # Webpacking Installation details text
 .webpackAdded.txt
+
+# List of All Api and there params through get method
+listOfApi.txt

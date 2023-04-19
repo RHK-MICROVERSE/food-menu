@@ -90,9 +90,14 @@ Food Menu: mobile-first approach & responsive on desktop version and bigger size
 ***feature-two***
 - Implementation of <a href="https://github.com/webpack/webpack">Webpack Framework</a>
 
+***featture-three***
+- We will create a Food Menu for the visitor eloborating different options and type 
+- Choosing the <a href="https://www.themealdb.com/api.php">API</a>
+- Choose images, text, icons, fonts.
+- Set up the repository and tools has been done in feature-one, and feature-two
+
 ### Tech Stack <a name="tech-stack"></a>
 
-<!-- > Describe the tech stack and include only the relevant sections that apply to your project. -->
 <details>
   <summary>Client Side / Front-End</summary>
   <ul>
