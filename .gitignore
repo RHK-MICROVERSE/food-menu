@@ -125,5 +125,8 @@ out
 .yarn/install-state.gz
 .pnp.*
 
-# Linters error checking
+# Linters error checking text
 .errorTestSequences.txt
+
+# Webpacking Installation details text
+.webpackAdded.txt

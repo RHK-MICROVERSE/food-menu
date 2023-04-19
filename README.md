@@ -1,5 +1,3 @@
-# food-menu
-
 <a name="readme-top"></a>
 
 <div align="center">
@@ -83,6 +81,14 @@ Food Menu: mobile-first approach & responsive on desktop version and bigger size
 
 
 ## 🛠 Built With <a name="built-with"></a>
+
+***feature-One***
+- Imeplementation of Basic Framework linters error free.
+- Implementation of <a href="https://github.com/microverseinc/curriculum-tools-copy-projects">Kanban Board</a>
+- Implementation of <a href="https://github.com/microverseinc/curriculum-transversal-skills/blob/main/git-github/articles/gitflow.md">Gitflow</a>
+
+***feature-two***
+- Implementation of <a href="https://github.com/webpack/webpack">Webpack Framework</a>
 
 ### Tech Stack <a name="tech-stack"></a>
 
