@@ -252,3 +252,9 @@ transform: translate(-50%, -50%);
 .ingredients{
   margin-left:7px;
 }
+.ingredientC{
+  margin: 5px;
+}
+.ingredientC li{
+  margin: 3px;
+}
