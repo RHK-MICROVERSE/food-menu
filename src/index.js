@@ -4,10 +4,12 @@ import foodCategories from '../modules/foodCategories.js';
 import foodIngredients from '../modules/foodIngredients.js';
 import {foodRandomSelection} from '../modules/foodRandomSelection.js';
 import createPop from '../modules/foodComment';
+import foodComment from '../modules/foodComment';
 
 document.addEventListener('DOMContentLoaded', foodAreaes.displayAreaes);
 document.addEventListener('DOMContentLoaded', foodCategories.displayCategories);
 document.addEventListener('DOMContentLoaded', foodIngredients.displayIngredients);
 document.addEventListener('DOMContentLoaded', foodRandomSelection.displayRandomFoodSelection);
-document.addEventListener('DOMContentLoaded', createPop())
+window.setTimeout(createPop, 4000)
+
 
