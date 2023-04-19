@@ -15,9 +15,7 @@ const foodRandomSelection = {
           },
         );
 
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
+        
         // eslint-disable-next-line no-await-in-loop
         const foodRandomdata = await response.json();
         mealsArray.push(foodRandomdata.meals);
@@ -29,6 +27,7 @@ const foodRandomSelection = {
 
     getResponse().then((mealsArray) => {
       const MealsData = mealsArray;
+      console.log(MealsData[0][0])
       foodCards.innerHTML = MealsData.map((meal) => `
         <div class="card">
           <img src="${meal[0].strMealThumb}" class="img-food">
@@ -46,5 +45,5 @@ const foodRandomSelection = {
     });
   },
 };
-
-export default foodRandomSelection;
+console.log(mealsArray)
+export {foodRandomSelection, mealsArray};
