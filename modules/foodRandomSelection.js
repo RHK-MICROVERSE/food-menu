@@ -1,9 +1,7 @@
 const foodCards = document.querySelector('.foodCards');
 const mealsArray = [];
 let counter = 0;
-
 const foodRandomSelection = {
-
   displayRandomFoodSelection: () => {
     const getResponse = async () => {
       while (counter < 9) {
@@ -15,9 +13,6 @@ const foodRandomSelection = {
           },
         );
 
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
         // eslint-disable-next-line no-await-in-loop
         const foodRandomdata = await response.json();
         mealsArray.push(foodRandomdata.meals);
@@ -26,7 +21,6 @@ const foodRandomSelection = {
       }
       return mealsArray;
     };
-
     getResponse().then((mealsArray) => {
       const MealsData = mealsArray;
       foodCards.innerHTML = MealsData.map((meal) => `
@@ -38,13 +32,22 @@ const foodRandomSelection = {
           </div>
           <p class="likes">likes</p>
           <div class="buttons">
-            <input type="button" class="button" value="Comments">
-            <input type="button" class="button" value="Reservations">
+            <input type="button" class="btnForComments" value="Comments">
+            <input type="button" class="btnForReservations" value="Reservations">
           </div>
         </div>
       `).join('');
     });
   },
+
 };
 
-export default foodRandomSelection;
+// eslint-disable-next-line space-infix-ops
+const exporting = () => {
+  // eslint-disable-next-line
+  mealsArray;
+};
+
+window.setTimeout(exporting, 2);
+
+export { foodRandomSelection, mealsArray };
