@@ -32,8 +32,8 @@ const foodRandomSelection = {
           </div>
           <p class="likes">likes</p>
           <div class="buttons">
-            <input type="button" class="button0" value="Comments">
-            <input type="button" class="button1" value="Reservations">
+            <input type="button" class="btnForComments" value="Comments">
+            <input type="button" class="btnForReservations" value="Reservations">
           </div>
         </div>
       `).join('');
@@ -42,9 +42,11 @@ const foodRandomSelection = {
 
 };
 
-const exporting = () => { // eslint-disable-line
-  mealsArray; // eslint-disable-line
-}; // eslint-disable-line
+// eslint-disable-next-line space-infix-ops
+const exporting = () => {
+  // eslint-disable-next-line
+  mealsArray;
+};
 
 window.setTimeout(exporting, 2);
 

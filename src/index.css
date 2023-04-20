@@ -190,14 +190,14 @@ h6 {
   margin-top: 10px;
 }
 
-.button0 {
+.btnForComments {
   width: 80%;
   padding: 5px 0;
   cursor: pointer;
   box-shadow: 3px 3px 3px 1px #4c4a4b;
 }
 
-.button1 {
+.btnForReservations {
   width: 80%;
   padding: 5px 0;
   cursor: pointer;

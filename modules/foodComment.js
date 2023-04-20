@@ -43,7 +43,7 @@ ${api[0].strIngredient20}
 };
 
 window.setTimeout(() => {
-  const popButton = document.querySelectorAll('.button0');
+  const popButton = document.querySelectorAll('.btnForComments');
 
   for (let i = 0; i < popButton.length; i += 1) {
     popButton[i].addEventListener('click', () => {
