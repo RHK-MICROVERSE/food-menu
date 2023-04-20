@@ -204,7 +204,6 @@ h6 {
   box-shadow: 3px 3px 3px 1px #4c4a4b;
 }
 
-
 .footer {
   border-top: 1px solid #da729f2a;
   border-bottom: 1px solid #da729f2a;
@@ -236,8 +235,8 @@ h6 {
   position: fixed;
   top: 0;
   top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .close {
@@ -251,15 +250,16 @@ transform: translate(-50%, -50%);
   margin-right: auto;
 }
 
-.FoodName{
+.FoodName {
   margin-top: 5px;
   text-align: center;
   font-size: 30px;
 }
 
-.ingredients{
-  margin-left:7px;
+.ingredients {
+  margin-left: 7px;
 }
-.ingredientC{
+
+.ingredientC {
   margin: 5px;
 }

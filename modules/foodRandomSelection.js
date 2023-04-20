@@ -1,8 +1,7 @@
-
 const foodCards = document.querySelector('.foodCards');
-var mealsArray = [];
+const mealsArray = [];
 let counter = 0;
-let exportedArray = "";
+let exportedArray = '';
 const foodRandomSelection = {
   displayRandomFoodSelection: () => {
     const getResponse = async () => {
@@ -15,7 +14,6 @@ const foodRandomSelection = {
           },
         );
 
-        
         // eslint-disable-next-line no-await-in-loop
         const foodRandomdata = await response.json();
         mealsArray.push(foodRandomdata.meals);
@@ -24,12 +22,10 @@ const foodRandomSelection = {
       }
       return mealsArray;
     };
-    console.log(mealsArray)
     getResponse().then((mealsArray) => {
       const MealsData = mealsArray;
-      let exportedArray = "";
-      exportedArray = mealsArray
-      console.log(exportedArray[0][0])
+      let exportedArray = '';
+      exportedArray = mealsArray;
       foodCards.innerHTML = MealsData.map((meal) => `
         <div class="card">
           <img src="${meal[0].strMealThumb}" class="img-food">
@@ -44,17 +40,15 @@ const foodRandomSelection = {
           </div>
         </div>
       `).join('');
-    }
-    );
+    });
   },
 
 };
 
 const exporting = () => {
-  exportedArray = mealsArray
-  console.log(exportedArray)
-} 
+ exportedArray = mealsArray;
+};
 
-window.setTimeout(exporting, 2)
+window.setTimeout(exporting, 2);
 
-export {foodRandomSelection,exportedArray};
+export { foodRandomSelection, exportedArray };
