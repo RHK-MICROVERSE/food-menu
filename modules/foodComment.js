@@ -1,10 +1,9 @@
-import { exportedArray } from './foodRandomSelection.js';
+import { mealsArray } from './foodRandomSelection.js';
 
 const createPop = () => {
   const body = document.querySelector('body');
   const div = document.createElement('div');
-  console.log(exportedArray);
-  exportedArray.forEach((api) => {
+  mealsArray.forEach((api) => {
     const popupC = `
 <div class="popup">
 <img class="close" onclick="this.parentNode.style.display = 'none';" src="https://static.vecteezy.com/system/resources/thumbnails/020/048/793/small/x-transparent-background-free-png.png">
@@ -43,27 +42,22 @@ ${api[0].strIngredient20}
   body.appendChild(div);
 };
 
-
 window.setTimeout(() => {
   const popButton = document.querySelectorAll('.button0');
 
-  for(let i = 0; i < popButton.length; i+= 1){
-    popButton[i].addEventListener("click", () => {
-        document.querySelectorAll('.popup')[i].style.display = 'flex';
-    })
+  for (let i = 0; i < popButton.length; i += 1) {
+    popButton[i].addEventListener('click', () => {
+      document.querySelectorAll('.popup')[i].style.display = 'flex';
+    });
   }
-
-
-
 }, 3000);
 
 // document.querySelector(".logo").addEventListener("click", function() {
 //     document.querySelector(".popup").style.display = "flex"
 // })
 
-
 // })
 
 // })
 
-export default createPop
+export default createPop;
