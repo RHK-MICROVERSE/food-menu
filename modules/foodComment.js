@@ -52,6 +52,37 @@ window.setTimeout(() => {
   }
 }, 3000);
 
+const submitC = async (item1, user1) => {
+const response = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/mV26cirAdGiyCoVktEPn/comments/', {
+
+ method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      "item_id": "item2",
+      "username": item1,
+      "comment": user1
+    }),
+  });
+  const data = await response.json();
+  console.log(data)
+  return data;
+
+}
+
+const get = async () => {
+  const res = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/mV26cirAdGiyCoVktEPn/comments?item_id=item2');
+  let output = [];
+  const data = await res.json();
+  console.log(data)
+
+};
+
+
+window.setTimeout(get, 3000)
+
+
 // document.querySelector(".logo").addEventListener("click", function() {
 //     document.querySelector(".popup").style.display = "flex"
 // })
