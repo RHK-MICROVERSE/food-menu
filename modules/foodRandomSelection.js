@@ -39,8 +39,8 @@ const foodRandomSelection = {
           </div>
           <p class="likes">likes</p>
           <div class="buttons">
-            <input type="button" class="button" value="Comments">
-            <input type="button" class="button" value="Reservations">
+            <input type="button" class="button0" value="Comments">
+            <input type="button" class="button1" value="Reservations">
           </div>
         </div>
       `).join('');

@@ -190,12 +190,20 @@ h6 {
   margin-top: 10px;
 }
 
-.button {
+.button0 {
   width: 80%;
   padding: 5px 0;
   cursor: pointer;
   box-shadow: 3px 3px 3px 1px #4c4a4b;
 }
+
+.button1 {
+  width: 80%;
+  padding: 5px 0;
+  cursor: pointer;
+  box-shadow: 3px 3px 3px 1px #4c4a4b;
+}
+
 
 .footer {
   border-top: 1px solid #da729f2a;
@@ -220,7 +228,7 @@ h6 {
 }
 
 .popup {
-  display: flex;
+  display: none;
   flex-direction: column;
   background: rgb(115, 22, 168);
   width: 800px;
@@ -254,7 +262,4 @@ transform: translate(-50%, -50%);
 }
 .ingredientC{
   margin: 5px;
-}
-.ingredientC li{
-  margin: 3px;
 }

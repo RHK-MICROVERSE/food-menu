@@ -45,12 +45,31 @@ div.innerHTML += popupC
 body.appendChild(div)
 
 
-
-
-
-
-  
 }
 
+
+
+
+
+
+let counter = 0
+window.setTimeout(function() {
+    
+    console.log("working")
+    const popButton = document.querySelectorAll(".button0");
+    
+    popButton.forEach((pop) => {
+        
+        pop.addEventListener("click", (e) => {
+            document.querySelectorAll(".popup")[counter].style.display = "flex"
+          counter++  
+        })
+        
+    })
+ }, 3000)
+
+// document.querySelector(".logo").addEventListener("click", function() {
+//     document.querySelector(".popup").style.display = "flex"
+// })
 
 export default createPop
