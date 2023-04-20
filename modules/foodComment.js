@@ -72,24 +72,24 @@ window.setTimeout(() => {
   }
 }, 3000);
 
-const submitC = async (item1, user1) => {
-const response = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/mV26cirAdGiyCoVktEPn/comments/', {
+// const submitC = async (item1, user1) => {
+// const response = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/mV26cirAdGiyCoVktEPn/comments/', {
 
- method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      "item_id": "item2",
-      "username": item1,
-      "comment": user1
-    }),
-  });
-  const data = await response.json();
-  console.log(data)
-  return data;
+//  method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//     body: JSON.stringify({
+//       "item_id": "item2",
+//       "username": item1,
+//       "comment": user1
+//     }),
+//   });
+//   const data = await response.json();
+//   console.log(data)
+//   return data;
 
-}
+// }
 
 
 
