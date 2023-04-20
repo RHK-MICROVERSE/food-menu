@@ -35,8 +35,12 @@ const foodRandomSelection = {
           <div class="food-info">
             <p class="food-name">${meal[0].strMeal}</p>
             <p class="likeSymbol">&#10084;</p>
+            <div class="likenCount">
+              <div class="likeCount">count</div>
+              <div class="likes">likes</div>
+            </div>
           </div>
-          <p class="likes">likes</p>
+
           <div class="buttons">
             <input type="button" class="button" value="Comments">
             <input type="button" class="button" value="Reservations">
