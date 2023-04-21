@@ -3,6 +3,18 @@ import { mealsArray } from './foodRandomSelection.js';
 const createPop = () => {
   const body = document.querySelector('body');
   const div = document.createElement('div');
+
+  const get = async (ID) => {
+    const res = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/mV26cirAdGiyCoVktEPn/comments?item_id=${ID}`);
+    let output = [];
+    const data = await res.json();
+    output = `<p>[${data[0].creation_date}]&nbsp;&nbsp;${data[0].username}:${data[0].comment}</p>`;
+    const comments = document.querySelectorAll('.comments');
+    comments.forEach((etc) => {
+      etc.innerHTML = output;
+    });
+  };
+
   mealsArray.forEach((api) => {
     const popupC = `
 <div class="popup">
@@ -34,8 +46,14 @@ ${api[0].strIngredient18}
 ${api[0].strIngredient19}
 ${api[0].strIngredient20}
 </div>
+<div class="commentTitle">
+Comments
+</div>
+<div class="comments">
+</div>
 </div>
 `;
+    get('item2');
 
     div.innerHTML += popupC;
   });
@@ -81,6 +99,7 @@ const get = async () => {
 
 
 window.setTimeout(get, 3000)
+
 
 
 // document.querySelector(".logo").addEventListener("click", function() {
