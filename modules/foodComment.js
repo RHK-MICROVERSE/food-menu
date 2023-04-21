@@ -65,7 +65,7 @@ Add comment
 </form>
 </div>
 `;
-    get('item2');
+    get(`"${api[0].idMeal}"`);
 
     div.innerHTML += popupC;
   });
@@ -83,7 +83,7 @@ window.setTimeout(() => {
 }, 3000);
 
 
-const submitC = async (item1, user1) => {
+const submitC = async (item1, user1, ID) => {
   const response = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/mV26cirAdGiyCoVktEPn/comments/', {
   
    method: 'POST',
@@ -91,11 +91,12 @@ const submitC = async (item1, user1) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        "item_id": "item2",
+        "item_id": `"${ID}"`,
         "username": item1,
         "comment": user1
       }),
     });
+  
     const get = async (ID) => {
       const res = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/mV26cirAdGiyCoVktEPn/comments?item_id=${ID}`);
       let output = [];
@@ -109,8 +110,7 @@ const submitC = async (item1, user1) => {
         etc.innerHTML = output;
       });
     }
-    get("item2")
-
+    get(`"${ID}"`)
   }
 
 
@@ -118,7 +118,7 @@ window.setTimeout(() => {
   const submit = document.querySelectorAll(".submit")
   submit.forEach((sub) => {
     sub.addEventListener("click", (e) => {
-      submitC(e.target.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.value, e.target.previousElementSibling.previousElementSibling.value)
+      submitC(e.target.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.value, e.target.previousElementSibling.previousElementSibling.value,e.target.nextElementSibling.innerHTML)
       console.log(e.target.previousElementSibling.previousElementSibling.value)
       console.log(e.target.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.value)
       console.log(e.target.nextElementSibling.innerHTML)
