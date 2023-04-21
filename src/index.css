@@ -290,3 +290,28 @@ h6 {
 .comments {
   margin-top: 7px;
 }
+
+.submit {
+  margin-top: 10px;
+}
+
+.flexForm {
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+}
+
+.username {
+  width: 200px;
+}
+
+.message {
+  padding-bottom: 105px;
+  width: 200px;
+  height: 120px;
+}
+
+.idMeal {
+  visibility: hidden;
+}

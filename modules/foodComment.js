@@ -8,12 +8,15 @@ const createPop = () => {
     const res = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/mV26cirAdGiyCoVktEPn/comments?item_id=${ID}`);
     let output = [];
     const data = await res.json();
-    output = `<p>[${data[0].creation_date}]&nbsp;&nbsp;${data[0].username}:${data[0].comment}</p>`;
+    console.log(data)
+    data.forEach((Comment) => {
+    output += `<p>[${Comment.creation_date}]&nbsp;&nbsp;${Comment.username}:${Comment.comment}</p>`;
+    })
     const comments = document.querySelectorAll('.comments');
     comments.forEach((etc) => {
       etc.innerHTML = output;
     });
-  };
+  }
 
   mealsArray.forEach((api) => {
     const popupC = `
@@ -51,13 +54,14 @@ Comments
 </div>
 <div class="comments">
 </div><br>
-<form>
+<form class="flexForm">
 <div class="commentTitle" align="center">
 Add comment
 </div>
 <input type="text" class="username" placeholder="username"><br>
-<input type="text" class="message" placeholder="message">
-<button type="button" value="submit"></button>
+<input type="text" class="message" placeholder="message"><br>
+<button class="submit" type="button">Submit</button>
+<div class="idMeal">${api[0].idMeal}</div>
 </form>
 </div>
 `;
@@ -78,24 +82,59 @@ window.setTimeout(() => {
   }
 }, 3000);
 
-// const submitC = async (item1, user1) => {
-// const response = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/mV26cirAdGiyCoVktEPn/comments/', {
 
-//  method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//     body: JSON.stringify({
-//       "item_id": "item2",
-//       "username": item1,
-//       "comment": user1
-//     }),
-//   });
-//   const data = await response.json();
-//   console.log(data)
-//   return data;
+const submitC = async (item1, user1) => {
+  const response = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/mV26cirAdGiyCoVktEPn/comments/', {
+  
+   method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        "item_id": "item2",
+        "username": item1,
+        "comment": user1
+      }),
+    });
+    const get = async (ID) => {
+      const res = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/mV26cirAdGiyCoVktEPn/comments?item_id=${ID}`);
+      let output = [];
+      const data = await res.json();
+      console.log(data)
+      data.forEach((Comment) => {
+      output += `<p>[${Comment.creation_date}]&nbsp;&nbsp;${Comment.username}:${Comment.comment}</p>`;
+      })
+      const comments = document.querySelectorAll('.comments');
+      comments.forEach((etc) => {
+        etc.innerHTML = output;
+      });
+    }
+    get("item2")
 
-// }
+  }
+
+
+window.setTimeout(() => {
+  const submit = document.querySelectorAll(".submit")
+  submit.forEach((sub) => {
+    sub.addEventListener("click", (e) => {
+      submitC(e.target.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.value, e.target.previousElementSibling.previousElementSibling.value)
+      console.log(e.target.previousElementSibling.previousElementSibling.value)
+      console.log(e.target.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.value)
+      console.log(e.target.nextElementSibling.innerHTML)
+    })
+  })
+}, 3000)
+
+// submit.forEach((e) => {
+//   e.addEventListener("click", () => {
+//     console.log("working")
+//   })
+// })
+
+
+
+
 
 // document.querySelector(".logo").addEventListener("click", function() {
 //     document.querySelector(".popup").style.display = "flex"
