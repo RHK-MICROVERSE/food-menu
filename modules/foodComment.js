@@ -81,6 +81,7 @@ window.setTimeout(() => {
   }
 }, 3000);
 
+
 const submitC = async (item1, user1, ID) => {
   // eslint-disable-next-line
   const response = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/mV26cirAdGiyCoVktEPn/comments/', {
@@ -129,6 +130,7 @@ window.setTimeout(() => {
 //     console.log("working")
 //   })
 // })
+
 
 // document.querySelector(".logo").addEventListener("click", function() {
 //     document.querySelector(".popup").style.display = "flex"
