@@ -50,7 +50,15 @@ ${api[0].strIngredient20}
 Comments
 </div>
 <div class="comments">
+</div><br>
+<form>
+<div class="commentTitle" align="center">
+Add comment
 </div>
+<input type="text" class="username" placeholder="username"><br>
+<input type="text" class="message" placeholder="message">
+<button type="button" value="submit"></button>
+</form>
 </div>
 `;
     get('item2');
