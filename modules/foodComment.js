@@ -10,11 +10,11 @@ const createPop = () => {
     let output = [];
     const data = await res.json();
     const comments = document.querySelectorAll('.comments');
-    const commentCount = document.querySelectorAll('.commentC')
+    const commentCount = document.querySelectorAll('.commentC');
     data.forEach((Comment) => {
       output += `<p>[${Comment.creation_date}]&nbsp;&nbsp;${Comment.username}:${Comment.comment}</p>`;
     });
-    commentCount[CMT].innerHTML = data.length
+    commentCount[CMT].innerHTML = data.length;
     comments[CMT].innerHTML = output;
   };
 
@@ -104,11 +104,11 @@ const submitC = async (item1, user1, ID) => {
     let output = [];
     const data = await res.json();
     const comments = document.querySelectorAll('.comments');
-    const commentCount = document.querySelectorAll('.commentC')
+    const commentCount = document.querySelectorAll('.commentC');
     data.forEach((Comment) => {
       output += `<p>[${Comment.creation_date}]&nbsp;&nbsp;${Comment.username}:${Comment.comment}</p>`;
     });
-    commentCount[CMT].innerHTML = data.length
+    commentCount[CMT].innerHTML = data.length;
     comments[CMT].innerHTML = output;
   };
   mealsArray.forEach((api) => {
