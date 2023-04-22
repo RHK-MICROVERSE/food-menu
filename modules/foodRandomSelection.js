@@ -40,7 +40,6 @@ const foodRandomSelection = {
           </div>
           <div class="buttons">
             <input type="button" class="btnForComments" value="Comments">
-            <input type="button" class="btnForReservations" value="Reservations">
           </div>
         </div>
       `).join('');

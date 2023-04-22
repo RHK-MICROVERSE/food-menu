@@ -51,7 +51,7 @@ ${api[0].strIngredient19}
 ${api[0].strIngredient20}
 </div>
 <div class="commentTitle">
-Comments[<span class="commentC">0</span>]
+&nbsp;Comments&nbsp;[<span class="commentC">0</span>]
 </div>
 <div class="comments">
 </div><br>
@@ -99,7 +99,6 @@ const submitC = async (item1, user1, ID) => {
       comment: user1,
     }),
   });
-
 
   mealsArray.forEach((api) => {
     get(`"${api[0].idMeal}"`, count);
