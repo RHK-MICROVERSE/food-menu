@@ -283,12 +283,15 @@ h6 {
 }
 
 .ingredients {
-  margin-left: 7px;
+  margin-left: 10px;
+  color: gold;
   font-size: large;
+  margin-top: 10px;
 }
 
 .ingredientC {
-  margin: 5px;
+  color: gold;
+  margin: 10px;
 }
 
 .commentTitle {
@@ -323,4 +326,8 @@ h6 {
 
 .idMeal {
   visibility: hidden;
+}
+
+.userComment {
+  margin-left: 10px;
 }
