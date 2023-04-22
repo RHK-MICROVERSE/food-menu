@@ -3,16 +3,18 @@ import { mealsArray } from './foodRandomSelection.js';
 const createPop = () => {
   const body = document.querySelector('body');
   const div = document.createElement('div');
+  let county = 0;
 
-  const get = async (ID) => {
+  const get = async (ID, CMT) => {
     const res = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/mV26cirAdGiyCoVktEPn/comments?item_id=${ID}`);
     let output = [];
     const data = await res.json();
-    output = `<p>[${data[0].creation_date}]&nbsp;&nbsp;${data[0].username}:${data[0].comment}</p>`;
     const comments = document.querySelectorAll('.comments');
-    comments.forEach((etc) => {
-      etc.innerHTML = output;
+    data.forEach((Comment) => {
+      output += `<p>[${Comment.creation_date}]&nbsp;&nbsp;${Comment.username}:${Comment.comment}</p>`;
     });
+
+    comments[CMT].innerHTML = output;
   };
 
   mealsArray.forEach((api) => {
@@ -50,11 +52,21 @@ ${api[0].strIngredient20}
 Comments
 </div>
 <div class="comments">
+</div><br>
+<form class="flexForm">
+<div class="commentTitle" align="center">
+Add comment
 </div>
+<input type="text" class="username" placeholder="username"><br>
+<input type="text" class="message" placeholder="message"><br>
+<button class="submit" type="button">Submit</button>
+<div class="idMeal">${api[0].idMeal}</div>
+</form>
 </div>
 `;
-    get('item2');
+    get(`"${api[0].idMeal}"`, county);
 
+    county += 1;
     div.innerHTML += popupC;
   });
   body.appendChild(div);
@@ -70,31 +82,57 @@ window.setTimeout(() => {
   }
 }, 3000);
 
-// const submitC = async (item1, user1) => {
-//   const response = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/mV26cirAdGiyCoVktEPn/comments/', {
-
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//     body: JSON.stringify({
-//       item_id: 'item2',
-//       username: item1,
-//       comment: user1,
-//     }),
-//   });
-//   const data = await response.json();
-//   console.log(data);
-//   return data;
-// };
-
-const get = async () => {
-  const res = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/mV26cirAdGiyCoVktEPn/comments?item_id=item2');
+const submitC = async (item1, user1, ID) => {
+  let count = 0;
   // eslint-disable-next-line
-  const data = await res.json();
+  const response = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/mV26cirAdGiyCoVktEPn/comments/', {
+
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      item_id: `"${ID}"`,
+      username: item1,
+      comment: user1,
+    }),
+  });
+
+  const get = async (ID, CMT) => {
+    const res = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/mV26cirAdGiyCoVktEPn/comments?item_id=${ID}`);
+    let output = [];
+    const data = await res.json();
+    const comments = document.querySelectorAll('.comments');
+    data.forEach((Comment) => {
+      output += `<p>[${Comment.creation_date}]&nbsp;&nbsp;${Comment.username}:${Comment.comment}</p>`;
+    });
+
+    comments[CMT].innerHTML = output;
+  };
+  mealsArray.forEach((api) => {
+    get(`"${api[0].idMeal}"`, count);
+    count += 1;
+  });
 };
 
-window.setTimeout(get, 3000);
+window.setTimeout(() => {
+  const submit = document.querySelectorAll('.submit');
+  submit.forEach((sub) => {
+    sub.addEventListener('click', (e) => {
+      submitC(// eslint-disable-next-line
+        e.target.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.value,
+        e.target.previousElementSibling.previousElementSibling.value,
+        e.target.nextElementSibling.innerHTML,
+      );
+    });
+  });
+}, 3000);
+
+// submit.forEach((e) => {
+//   e.addEventListener("click", () => {
+//     console.log("working")
+//   })
+// })
 
 // document.querySelector(".logo").addEventListener("click", function() {
 //     document.querySelector(".popup").style.display = "flex"

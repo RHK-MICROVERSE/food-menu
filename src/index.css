@@ -247,7 +247,7 @@ h6 {
   flex-direction: column;
   background: rgb(115, 22, 168);
   width: 800px;
-  height: 700px;
+  height: 650px;
   border: black solid 2px;
   position: fixed;
   top: 0;
@@ -289,4 +289,29 @@ h6 {
 
 .comments {
   margin-top: 7px;
+}
+
+.submit {
+  margin-top: 10px;
+}
+
+.flexForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.username {
+  width: 200px;
+}
+
+.message {
+  padding-bottom: 105px;
+  width: 200px;
+  height: 120px;
+}
+
+.idMeal {
+  visibility: hidden;
 }
