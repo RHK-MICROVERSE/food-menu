@@ -9,11 +9,12 @@ const createPop = () => {
     const res = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/DQ1WY7tbkUIhRnRaIdyZ/comments?item_id=${ID}`);
     let output = [];
     const data = await res.json();
+    const commentCount = document.querySelectorAll(".commentCounter");
     const comments = document.querySelectorAll('.comments');
     data.forEach((Comment) => {
       output += `<p>[${Comment.creation_date}]&nbsp;&nbsp;${Comment.username}:${Comment.comment}</p>`;
     });
-
+    commentCount[CMT].innerHTML = data.length
     comments[CMT].innerHTML = output;
   };
 
@@ -49,7 +50,7 @@ ${api[0].strIngredient19}
 ${api[0].strIngredient20}
 </div>
 <div class="commentTitle">
-Comments
+Comments[<span class="commentCounter">0</span>]
 </div>
 <div class="comments">
 </div><br>
@@ -103,10 +104,11 @@ const submitC = async (item1, user1, ID) => {
     let output = [];
     const data = await res.json();
     const comments = document.querySelectorAll('.comments');
+    const commentCount = document.querySelectorAll(".commentCounter");
     data.forEach((Comment) => {
       output += `<p>[${Comment.creation_date}]&nbsp;&nbsp;${Comment.username}:${Comment.comment}</p>`;
     });
-
+    commentCount[CMT].innerHTML = data.length
     comments[CMT].innerHTML = output;
   };
   mealsArray.forEach((api) => {
