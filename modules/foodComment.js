@@ -122,4 +122,4 @@ window.setTimeout(() => {
   });
 }, 3000);
 
-export default createPop;
+export {createPop , get};
