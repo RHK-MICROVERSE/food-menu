@@ -3,7 +3,6 @@ import { mealsArray } from './foodRandomSelection.js';
 const createPop = () => {
   const body = document.querySelector('body');
   const div = document.createElement('div');
-
   const get = async (ID) => {
     const res = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/mV26cirAdGiyCoVktEPn/comments?item_id=${ID}`);
     let output = [];
@@ -11,6 +10,14 @@ const createPop = () => {
     data.forEach((Comment) => {
       output += `<p>[${Comment.creation_date}]&nbsp;&nbsp;${Comment.username}:${Comment.comment}</p>`;
     });
+  //   if(data.length !== undefined){
+  //   const commentNH = document.querySelectorAll('.commentN');
+  //   for(let i = 0; i < data.length; i++){
+  //     commentNH[i].innerHTML = data.length
+  //     console.log(data.length)
+  //   }
+  // }
+
     const comments = document.querySelectorAll('.comments');
     comments.forEach((etc) => {
       etc.innerHTML = output;
@@ -49,7 +56,7 @@ ${api[0].strIngredient19}
 ${api[0].strIngredient20}
 </div>
 <div class="commentTitle">
-Comments
+Comments[<span class="commentN"></span>]
 </div>
 <div class="comments">
 </div><br>
@@ -81,7 +88,8 @@ window.setTimeout(() => {
   }
 }, 3000);
 
-const submitC = async (item1, user1, ID) => {
+
+const submitC = async (item1, user1) => {
   // eslint-disable-next-line
   const response = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/mV26cirAdGiyCoVktEPn/comments/', {
 
@@ -103,12 +111,19 @@ const submitC = async (item1, user1, ID) => {
     data.forEach((Comment) => {
       output += `<p>[${Comment.creation_date}]&nbsp;&nbsp;${Comment.username}:${Comment.comment}</p>`;
     });
+    const commentNH = document.querySelectorAll('.commentN');
+    for(let i = 0; i < data.length; i++){
+      commentNH[i].innerHTML = data.length
+      console.log(data.length)
+    }
     const comments = document.querySelectorAll('.comments');
     comments.forEach((etc) => {
       etc.innerHTML = output;
     });
   };
-  get(`"${ID}"`);
+  mealsArray.forEach((g) => {
+    console.log(g.idMeal)
+  })
 };
 
 window.setTimeout(() => {
@@ -118,7 +133,6 @@ window.setTimeout(() => {
       submitC(// eslint-disable-next-line
         e.target.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.value,
         e.target.previousElementSibling.previousElementSibling.value,
-        e.target.nextElementSibling.innerHTML,
       );
     });
   });
@@ -129,6 +143,7 @@ window.setTimeout(() => {
 //     console.log("working")
 //   })
 // })
+
 
 // document.querySelector(".logo").addEventListener("click", function() {
 //     document.querySelector(".popup").style.display = "flex"
