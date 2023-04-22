@@ -1,9 +1,10 @@
+const involvementApiUrl = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/';
+const involvementApiKey = 'DQ1WY7tbkUIhRnRaIdyZ';
 const foodCards = document.querySelector('.foodCards');
 const mealsArray = [];
 let counter = 0;
 
 const foodRandomSelection = {
-
   displayRandomFoodSelection: () => {
     const getResponse = async () => {
       while (counter < 9) {
@@ -22,11 +23,10 @@ const foodRandomSelection = {
         const foodRandomdata = await response.json();
         mealsArray.push(foodRandomdata.meals);
         // eslint-disable-next-line space-infix-ops
-        counter+=1;
+        counter += 1;
       }
       return mealsArray;
     };
-
     getResponse().then((mealsArray) => {
       const MealsData = mealsArray;
       foodCards.innerHTML = MealsData.map((meal) => `
@@ -34,21 +34,76 @@ const foodRandomSelection = {
           <img src="${meal[0].strMealThumb}" class="img-food">
           <div class="food-info">
             <p class="food-name">${meal[0].strMeal}</p>
-            <p class="likeSymbol">&#10084;</p>
-            <div class="likenCount">
-              <div class="likeCount">count</div>
+            <p class="likeSymbol" data-id=${meal[0].idMeal}>&#10084;</p>
+            <div class="likeCalculation">
+              <div class="likeCount" data-id=${meal[0].idMeal}>0</div>
               <div class="likes">likes</div>
             </div>
           </div>
-
           <div class="buttons">
             <input type="button" class="button" value="Comments">
             <input type="button" class="button" value="Reservations">
           </div>
         </div>
       `).join('');
+    }).then(async () => {
+      const likeCounterAPI = await fetch(`${involvementApiUrl}${involvementApiKey}/likes/`)
+        .then((response) => response.json())
+        .then((data) => data);
+
+      const likesCounter = foodCards.querySelectorAll('.likeCount');
+      likesCounter.forEach((likeCounter) => {
+        const likesId = likeCounter.getAttribute('data-id');
+        const element = likeCounter;
+        likeCounterAPI.forEach((likeAPI) => {
+          if (likesId === likeAPI.item_id) {
+            element.innerHTML = likeAPI.likes;
+          }
+        });
+      });
+      // To add or Create like when Heart is pressed
+      const likesButton = foodCards.querySelectorAll('.likeSymbol');
+      likesButton.forEach((likeButton) => {
+        likeButton.addEventListener('click', (e) => {
+          // eslint-disable-next-line max-len
+          const targetCounter = e.target.nextElementSibling.children[0].innerText;
+          // eslint-disable-next-line max-len
+          e.target.nextElementSibling.children[0].innerText = (+targetCounter) + 1;
+          fetch(`${involvementApiUrl}${involvementApiKey}/likes/`, {
+            method: 'POST',
+            body: JSON.stringify({
+              item_id: likeButton.getAttribute('data-id'),
+            }),
+            headers: {
+              'Content-type': 'application/json; charset=UTF-8',
+            },
+          });
+        });
+      });
     });
   },
 };
+
+// const likesCounter = foodCards.querySelectorAll('.likeCount');
+// const mealLikesId = likesCounter.getAttribute('dataId');
+// console.log(likesCounter);
+
+// get likes-counter
+// const likesAPIes = await fetch(`${involvementApiUrl}${involvementApiKey}/likes/`)
+//   .then((response) => response.json())
+//   .then((data) => data);
+
+// const likesCounter = foodCards.querySelectorAll('.likesCount');
+// likesCounter.forEach((likeCounter) => {
+//   const likesId = likeCounter.getAttribute('data-id');
+//   const element = likeCounter;
+//   likesAPIes.forEach((likeAPI) => {
+//     if (likesId === likeAPI.item_id) {
+//       element.innerHTML = likeAPI.likes;
+//     }
+//   });
+// });
+
+
 
 export default foodRandomSelection;

@@ -177,6 +177,11 @@ h6 {
   list-style-type: none;
 }
 
+.likeCalculation {
+  display: flex;
+  align-self: flex-end;
+}
+
 .likenCount {
   display: flex;
   flex-direction: row;
