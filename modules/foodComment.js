@@ -19,8 +19,6 @@ const createPop = () => {
   const div = document.createElement('div');
   let county = 0;
 
-  
-
   mealsArray.forEach((api) => {
     const popupC = `
 <div class="popup">

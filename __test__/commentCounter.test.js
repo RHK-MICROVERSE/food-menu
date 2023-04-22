@@ -1,4 +1,4 @@
-import { get } from "../modules/foodComment";
+import get  from "../modules/commentCounter";
 /**
  * @jest-environment jsdom
  */
@@ -7,6 +7,6 @@ import { get } from "../modules/foodComment";
     it('Should render 5 comments in the list', () => {
       const commentElement = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }];
   
-      expect(get(commentElement,5)).toEqual(' (5)');
+      expect(get(commentElement,commentElement)).toEqual(5);
     });
   });
