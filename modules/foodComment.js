@@ -109,14 +109,18 @@ const submitC = async (item1, user1, ID) => {
 
     comments[CMT].innerHTML = output;
   };
-  get(`"${ID}"`, count);
-  count += 1;
+  mealsArray.forEach((api) => {
+    get(`"${api[0].idMeal}"`, count);
+    count += 1;
+  })
+  
 };
 
 window.setTimeout(() => {
   const submit = document.querySelectorAll('.submit');
   submit.forEach((sub) => {
     sub.addEventListener('click', (e) => {
+      console.log("working")
       submitC(// eslint-disable-next-line
         e.target.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.value,
         e.target.previousElementSibling.previousElementSibling.value,
