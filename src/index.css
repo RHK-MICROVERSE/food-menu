@@ -209,7 +209,14 @@ h6 {
   margin-top: 10px;
 }
 
-.button {
+.btnForComments {
+  width: 80%;
+  padding: 5px 0;
+  cursor: pointer;
+  box-shadow: 3px 3px 3px 1px #4c4a4b;
+}
+
+.btnForReservations {
   width: 80%;
   padding: 5px 0;
   cursor: pointer;
@@ -236,4 +243,80 @@ h6 {
 .love-created {
   color: red;
   font-size: 1.2em;
+}
+
+.popup {
+  overflow: scroll;
+  overflow-x: hidden;
+  display: none;
+  flex-direction: column;
+  background: rgb(115, 22, 168);
+  width: 800px;
+  height: 650px;
+  border: black solid 2px;
+  position: fixed;
+  top: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.close {
+  width: 30px;
+  margin-left: auto;
+}
+
+.popImg {
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.FoodName {
+  margin-top: 5px;
+  text-align: center;
+  font-size: 30px;
+}
+
+.ingredients {
+  margin-left: 7px;
+  font-size: large;
+}
+
+.ingredientC {
+  margin: 5px;
+}
+
+.commentTitle {
+  font-weight: 1000;
+  font-size: large;
+}
+
+.comments {
+  margin-top: 7px;
+}
+
+.submit {
+  margin-top: 10px;
+}
+
+.flexForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.username {
+  width: 200px;
+}
+
+.message {
+  padding-bottom: 105px;
+  width: 200px;
+  height: 120px;
+}
+
+.idMeal {
+  visibility: hidden;
 }

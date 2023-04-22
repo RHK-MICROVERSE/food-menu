@@ -3,7 +3,6 @@ const involvementApiKey = 'DQ1WY7tbkUIhRnRaIdyZ';
 const foodCards = document.querySelector('.foodCards');
 const mealsArray = [];
 let counter = 0;
-
 const foodRandomSelection = {
   displayRandomFoodSelection: () => {
     const getResponse = async () => {
@@ -16,9 +15,6 @@ const foodRandomSelection = {
           },
         );
 
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
         // eslint-disable-next-line no-await-in-loop
         const foodRandomdata = await response.json();
         mealsArray.push(foodRandomdata.meals);
@@ -41,8 +37,8 @@ const foodRandomSelection = {
             </div>
           </div>
           <div class="buttons">
-            <input type="button" class="button" value="Comments">
-            <input type="button" class="button" value="Reservations">
+            <input type="button" class="btnForComments" value="Comments">
+            <input type="button" class="btnForReservations" value="Reservations">
           </div>
         </div>
       `).join('');
@@ -82,28 +78,16 @@ const foodRandomSelection = {
       });
     });
   },
+
 };
 
-// const likesCounter = foodCards.querySelectorAll('.likeCount');
-// const mealLikesId = likesCounter.getAttribute('dataId');
-// console.log(likesCounter);
-
-// get likes-counter
-// const likesAPIes = await fetch(`${involvementApiUrl}${involvementApiKey}/likes/`)
-//   .then((response) => response.json())
-//   .then((data) => data);
-
-// const likesCounter = foodCards.querySelectorAll('.likesCount');
-// likesCounter.forEach((likeCounter) => {
-//   const likesId = likeCounter.getAttribute('data-id');
-//   const element = likeCounter;
-//   likesAPIes.forEach((likeAPI) => {
-//     if (likesId === likeAPI.item_id) {
-//       element.innerHTML = likeAPI.likes;
-//     }
-//   });
-// });
-
-
-
 export default foodRandomSelection;
+// eslint-disable-next-line space-infix-ops
+const exporting = () => {
+  // eslint-disable-next-line
+  mealsArray;
+};
+
+window.setTimeout(exporting, 2);
+
+export { foodRandomSelection, mealsArray };
