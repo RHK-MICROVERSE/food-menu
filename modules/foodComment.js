@@ -13,7 +13,6 @@ const get = async (ID, CMT) => {
   comments[CMT].innerHTML = output;
 };
 
-
 const createPop = () => {
   const body = document.querySelector('body');
   const div = document.createElement('div');
@@ -119,4 +118,4 @@ window.setTimeout(() => {
   });
 }, 3000);
 
-export {createPop , get};
+export { createPop, get };
