@@ -12,7 +12,7 @@ const createPop = () => {
     const comments = document.querySelectorAll('.comments');
     const commentCount = document.querySelectorAll('.commentC');
     data.forEach((Comment) => {
-      output += `<p>[${Comment.creation_date}]&nbsp;&nbsp;${Comment.username}:${Comment.comment}</p>`;
+      output += `<p class="userComment">&nbsp;[${Comment.creation_date}]&nbsp;&nbsp;${Comment.username}:${Comment.comment}</p>`;
     });
     commentCount[CMT].innerHTML = data.length;
     comments[CMT].innerHTML = output;
@@ -50,7 +50,7 @@ ${api[0].strIngredient19}
 ${api[0].strIngredient20}
 </div>
 <div class="commentTitle">
-Comments[<span class="commentC">0</span>]
+&nbsp;Comments&nbsp;[<span class="commentC">0</span>]
 </div>
 <div class="comments">
 </div><br>
@@ -106,7 +106,7 @@ const submitC = async (item1, user1, ID) => {
     const comments = document.querySelectorAll('.comments');
     const commentCount = document.querySelectorAll('.commentC');
     data.forEach((Comment) => {
-      output += `<p>[${Comment.creation_date}]&nbsp;&nbsp;${Comment.username}:${Comment.comment}</p>`;
+      output += `<p class="userComment">&nbsp;[${Comment.creation_date}]&nbsp;&nbsp;${Comment.username}:${Comment.comment}</p>`;
     });
     commentCount[CMT].innerHTML = data.length;
     comments[CMT].innerHTML = output;
