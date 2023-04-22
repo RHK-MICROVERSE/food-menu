@@ -1,0 +1,124 @@
+Setting up for Weback
+1.	Go to the Github repository and copy all files in the set-up branch.
+
+2.	In VSC run the command: 
+npm install webpack webpack-cli --save-dev
+
+3.	Create a folder src and created the following files:
+index.js
+index.html
+hidedisplay.js
+
+4.	In VSC run the command:
+npm install --save lodash
+
+5.	In VSC run the command:
+npx webpack
+
+6.	Create the file webpack.config.js in the main directory as follows:
+
+const path = require('path');
+
+module.exports = {
+  entry: './src/index.js',
+  output: {
+    filename: 'main.js',
+    path: path.resolve(__dirname, 'dist'),
+  },
+};
+
+7.	In VSC run the command:
+npx webpack --config webpack.config.js
+
+8.	 add the two lines in package.json file:
+9.	  "scripts": {
+10.	    "test": "echo \"Error: no test specified\" && exit 1",
+11.	   + "start": "webpack serve --open",
+12.	   + "build": "webpack"
+13.	  },
+
+
+14.	 WARNING in configuration
+The 'mode' option has not been set, webpack will fallback to 'production' for this value.
+Set 'mode' option to 'development' or 'production' to enable defaults for each environment.
+You can also set it to 'none' to disable any default behavior. Learn more: https://webpack.js.org/configuration/mode/
+
+Add the following after the entry: ./src/index.js in the webpack.config.js to avoid above warning:
+mode: 'development',
+
+
+15.	In VSC run the command:
+npm run build
+
+16.	 In VSC run the command:
+npm install --save-dev style-loader css-loader
+
+
+17.	 Add the following in the webpack.config.js
+const path = require('path');
+
+  module.exports = {
+    entry: './src/index.js',
+   output: {
+     filename: 'bundle.js',
+     path: path.resolve(__dirname, 'dist'),
+	   },
++  module: {
++    rules: [
++      {
++        test: /\.css$/i,
++        use: ['style-loader', 'css-loader'],
++      },
++    ],
++  },
+ };
+
+
+18.	In VSC run the command:
+		npm run build
+
+Setting up HtmlWebpackPlugin
+19.	In VSC run the command:
+		npm install --save-dev html-webpack-plugin
+20.	Add the following lines in the webpack.confi.js
+(on the top)
+// eslint-disable-next-line import/no-extraneous-dependencies
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+(inside the program)
+plugins: [     new HtmlWebpackPlugin({       title: 'Output Management',       template: './src/index.html',     }),   ],
+
+21.	In VSC run the command:
+
+		npm run build
+		It will create a new index.html file inside dist folder.
+
+22.	In VSC run the command:
+		npm install --save-dev webpack-dev-server
+23.	Add the following line in the webpack.config.js
+	{
+	   "name": "webpack-demo",
+	   "version": "1.0.0",
+	   "description": "",
+	   "private": true,
+	   "scripts": {
+	     "test": "echo \"Error: no test specified\" && exit 1",
+	     "watch": "webpack --watch",
+	+    "start": "webpack serve --open",
+	     "build": "webpack"
+	   },
+	   "keywords": [],
+	   "author": "",
+	   "license": "ISC",
+	   "devDependencies": {
+	     "html-webpack-plugin": "^4.5.0",
+	     "webpack": "^5.4.0",
+	     "webpack-cli": "^4.2.0",
+	     "webpack-dev-server": "^3.11.0"
+	   },
+	   "dependencies": {
+	     "lodash": "^4.17.20"
+	   }
+	 
+
+npm start
