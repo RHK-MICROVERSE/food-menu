@@ -1,3 +1,5 @@
+import itemCounterFunction from './ItemCount.js';
+
 const involvementApiUrl = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/';
 const involvementApiKey = 'DQ1WY7tbkUIhRnRaIdyZ';
 const foodCards = document.querySelector('.foodCards');
@@ -76,9 +78,11 @@ const foodRandomSelection = {
           });
         });
       });
+      // item counter
+      const itemCounter = document.querySelector('.noOfItems');
+      itemCounterFunction(counter, itemCounter);
     });
   },
-
 };
 
 export default foodRandomSelection;
