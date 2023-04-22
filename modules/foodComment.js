@@ -3,25 +3,22 @@ import { mealsArray } from './foodRandomSelection.js';
 const createPop = () => {
   const body = document.querySelector('body');
   const div = document.createElement('div');
-  const get = async (ID) => {
+
+  let county = 0;
+
+  const get = async (ID, CMT) => {
+
     const res = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/mV26cirAdGiyCoVktEPn/comments?item_id=${ID}`);
     let output = [];
     const data = await res.json();
+    const comments = document.querySelectorAll('.comments');
     data.forEach((Comment) => {
       output += `<p>[${Comment.creation_date}]&nbsp;&nbsp;${Comment.username}:${Comment.comment}</p>`;
     });
-  //   if(data.length !== undefined){
-  //   const commentNH = document.querySelectorAll('.commentN');
-  //   for(let i = 0; i < data.length; i++){
-  //     commentNH[i].innerHTML = data.length
-  //     console.log(data.length)
-  //   }
-  // }
 
-    const comments = document.querySelectorAll('.comments');
-    comments.forEach((etc) => {
-      etc.innerHTML = output;
-    });
+
+    comments[CMT].innerHTML = output;
+
   };
 
   mealsArray.forEach((api) => {
@@ -71,8 +68,9 @@ Add comment
 </form>
 </div>
 `;
-    get(`"${api[0].idMeal}"`);
+    get(`"${api[0].idMeal}"`, county);
 
+    county += 1;
     div.innerHTML += popupC;
   });
   body.appendChild(div);
@@ -89,7 +87,9 @@ window.setTimeout(() => {
 }, 3000);
 
 
-const submitC = async (item1, user1) => {
+const submitC = async (item1, user1, ID) => {
+  let count = 0;
+
   // eslint-disable-next-line
   const response = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/mV26cirAdGiyCoVktEPn/comments/', {
 
@@ -104,26 +104,23 @@ const submitC = async (item1, user1) => {
     }),
   });
 
-  const get = async (ID) => {
+  const get = async (ID, CMT) => {
     const res = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/mV26cirAdGiyCoVktEPn/comments?item_id=${ID}`);
     let output = [];
     const data = await res.json();
+    const comments = document.querySelectorAll('.comments');
     data.forEach((Comment) => {
       output += `<p>[${Comment.creation_date}]&nbsp;&nbsp;${Comment.username}:${Comment.comment}</p>`;
     });
-    const commentNH = document.querySelectorAll('.commentN');
-    for(let i = 0; i < data.length; i++){
-      commentNH[i].innerHTML = data.length
-      console.log(data.length)
-    }
-    const comments = document.querySelectorAll('.comments');
-    comments.forEach((etc) => {
-      etc.innerHTML = output;
-    });
+
+
+    comments[CMT].innerHTML = output;
   };
-  mealsArray.forEach((g) => {
-    console.log(g.idMeal)
-  })
+  mealsArray.forEach((api) => {
+    get(`"${api[0].idMeal}"`, count);
+    count += 1;
+  });
+
 };
 
 window.setTimeout(() => {
