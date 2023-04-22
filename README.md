@@ -96,6 +96,28 @@ Food Menu: mobile-first approach & responsive on desktop version and bigger size
 - Choose images, text, icons, fonts.
 - Set up the repository and tools has been done in feature-one, and feature-two
 
+***feature-four***
+Showing the comments of the API in the Popup Comment section.
+
+***Feature-five***
+Imeplementation of the activity as, when the user clicks on the Like button of an item, the interaction is recorded in the Involvement API and the screen is updated. Implementation of the item counter.
+
+***feature-six***
+Implementation to make comment by the user to be added in the API.
+
+***feature-seven***
+Updating linter errors
+
+***feature-eight***
+Implementaion of the Comment counter
+
+***feature-nine***
+Imeplementation of unit test for the item counter.
+
+***feature-ten***
+Implementation of the unit test for the comment counter.
+
+
 ### Tech Stack <a name="tech-stack"></a>
 
 <details>
@@ -160,7 +182,7 @@ Food Menu: mobile-first approach & responsive on desktop version and bigger size
 
 
 ## 🚀 Live Demo <a name="live-demo"></a>
-[Live Demo Link](https://rhk-microverse.github.io/food-menu/)
+[Live Demo Link](https://rhk-microverse.github.io/food-menu/dist/)
 
 
 ## 💻 Getting Started <a name="getting-started"></a>
@@ -216,15 +238,17 @@ Run Github Actions Test
 
 ### Deployment
 
-This project is deployed at github pages you can clone it here. [Please click to clone](https://github.com/RHK-MICROVERSE/food-menu)
+This project is deployed at github pages you can clone it here. [Please click to clone](https://rhk-microverse.github.io/food-menu/dist/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 ## 👥 Authors <a name="Rassel Hassan Kadir"></a>
 - Main Author: **Rassel Hassan Kadir**
+- Co-Author: **Abdullah Al-Khureif**
+
 > List of the collaborators of this project.
-  
+👤 **Abdullah Al-Khureif**  
 👤 **Rassel Hassan Kadir**
 
 - GitHub: [@githubhandle](https://github.com/RHK-MICROVERSE)
