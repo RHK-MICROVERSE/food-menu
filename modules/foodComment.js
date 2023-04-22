@@ -3,21 +3,27 @@ import { mealsArray } from './foodRandomSelection.js';
 const createPop = () => {
   const body = document.querySelector('body');
   const div = document.createElement('div');
+  let county = 0
 
-  const get = async (ID) => {
+  const get = async (ID,CMT) => {
+
     const res = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/mV26cirAdGiyCoVktEPn/comments?item_id=${ID}`);
     let output = [];
     const data = await res.json();
+    console.log(data)
+    const comments = document.querySelectorAll('.comments');
     data.forEach((Comment) => {
+        console.log("working")
       output += `<p>[${Comment.creation_date}]&nbsp;&nbsp;${Comment.username}:${Comment.comment}</p>`;
     });
-    const comments = document.querySelectorAll('.comments');
-    comments.forEach((etc) => {
-      etc.innerHTML = output;
-    });
+
+    comments[CMT].innerHTML = output
+    
+    
   };
 
   mealsArray.forEach((api) => {
+
     const popupC = `
 <div class="popup">
 <img class="close" onclick="this.parentNode.style.display = 'none';" src="https://static.vecteezy.com/system/resources/thumbnails/020/048/793/small/x-transparent-background-free-png.png">
@@ -64,8 +70,10 @@ Add comment
 </form>
 </div>
 `;
-    get(`"${api[0].idMeal}"`);
-
+    get(`"${api[0].idMeal}"`, county);
+    
+    county += 1
+    console.log(county)
     div.innerHTML += popupC;
   });
   body.appendChild(div);
@@ -82,6 +90,7 @@ window.setTimeout(() => {
 }, 3000);
 
 const submitC = async (item1, user1, ID) => {
+  let count = 0
   // eslint-disable-next-line
   const response = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/mV26cirAdGiyCoVktEPn/comments/', {
 
@@ -96,19 +105,24 @@ const submitC = async (item1, user1, ID) => {
     }),
   });
 
-  const get = async (ID) => {
+  const get = async (ID,CMT) => {
+
     const res = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/mV26cirAdGiyCoVktEPn/comments?item_id=${ID}`);
     let output = [];
     const data = await res.json();
+    console.log(data)
+    const comments = document.querySelectorAll('.comments');
     data.forEach((Comment) => {
+        console.log("working")
       output += `<p>[${Comment.creation_date}]&nbsp;&nbsp;${Comment.username}:${Comment.comment}</p>`;
     });
-    const comments = document.querySelectorAll('.comments');
-    comments.forEach((etc) => {
-      etc.innerHTML = output;
-    });
+
+    comments[CMT].innerHTML = output
+    
+    
   };
-  get(`"${ID}"`);
+  get(`"${ID}"`,count);
+  count++
 };
 
 window.setTimeout(() => {
