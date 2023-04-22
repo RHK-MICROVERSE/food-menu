@@ -1,22 +1,25 @@
 import { mealsArray } from './foodRandomSelection.js';
 
+const get = async (ID, CMT) => {
+  const res = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/DQ1WY7tbkUIhRnRaIdyZ/comments?item_id=${ID}`);
+  let output = [];
+  const data = await res.json();
+  const comments = document.querySelectorAll('.comments');
+  const commentCount = document.querySelectorAll('.commentC');
+  data.forEach((Comment) => {
+    output += `<p>[${Comment.creation_date}]&nbsp;&nbsp;${Comment.username}:${Comment.comment}</p>`;
+  });
+  commentCount[CMT].innerHTML = data.length;
+  comments[CMT].innerHTML = output;
+};
+
+
 const createPop = () => {
   const body = document.querySelector('body');
   const div = document.createElement('div');
   let county = 0;
 
-  const get = async (ID, CMT) => {
-    const res = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/DQ1WY7tbkUIhRnRaIdyZ/comments?item_id=${ID}`);
-    let output = [];
-    const data = await res.json();
-    const comments = document.querySelectorAll('.comments');
-    const commentCount = document.querySelectorAll('.commentC');
-    data.forEach((Comment) => {
-      output += `<p>[${Comment.creation_date}]&nbsp;&nbsp;${Comment.username}:${Comment.comment}</p>`;
-    });
-    commentCount[CMT].innerHTML = data.length;
-    comments[CMT].innerHTML = output;
-  };
+  
 
   mealsArray.forEach((api) => {
     const popupC = `
@@ -99,18 +102,7 @@ const submitC = async (item1, user1, ID) => {
     }),
   });
 
-  const get = async (ID, CMT) => {
-    const res = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/DQ1WY7tbkUIhRnRaIdyZ/comments?item_id=${ID}`);
-    let output = [];
-    const data = await res.json();
-    const comments = document.querySelectorAll('.comments');
-    const commentCount = document.querySelectorAll('.commentC');
-    data.forEach((Comment) => {
-      output += `<p>[${Comment.creation_date}]&nbsp;&nbsp;${Comment.username}:${Comment.comment}</p>`;
-    });
-    commentCount[CMT].innerHTML = data.length;
-    comments[CMT].innerHTML = output;
-  };
+
   mealsArray.forEach((api) => {
     get(`"${api[0].idMeal}"`, count);
     count += 1;
