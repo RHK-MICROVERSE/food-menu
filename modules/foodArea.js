@@ -19,9 +19,8 @@ const foodAreaes = {
 
     getResponse().then((foodAreaesData) => {
       const areaesData = foodAreaesData.meals;
-
-      dropdownFoodAreaes.innerHTML = areaesData.map((area) => `
-        <a href="#">${area.strArea}</a>
+      dropdownFoodAreaes.innerHTML = areaesData.map((areaElement) => `
+        <a href="#">${areaElement.strArea}</a>
       `).join('');
     });
   },

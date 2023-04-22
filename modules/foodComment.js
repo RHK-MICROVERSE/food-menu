@@ -6,7 +6,7 @@ const createPop = () => {
   let county = 0;
 
   const get = async (ID, CMT) => {
-    const res = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/mV26cirAdGiyCoVktEPn/comments?item_id=${ID}`);
+    const res = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/DQ1WY7tbkUIhRnRaIdyZ/comments?item_id=${ID}`);
     let output = [];
     const data = await res.json();
     const comments = document.querySelectorAll('.comments');
@@ -85,7 +85,7 @@ window.setTimeout(() => {
 const submitC = async (item1, user1, ID) => {
   let count = 0;
   // eslint-disable-next-line
-  const response = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/mV26cirAdGiyCoVktEPn/comments/', {
+  const response = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/DQ1WY7tbkUIhRnRaIdyZ/comments/', {
 
     method: 'POST',
     headers: {
@@ -99,7 +99,7 @@ const submitC = async (item1, user1, ID) => {
   });
 
   const get = async (ID, CMT) => {
-    const res = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/mV26cirAdGiyCoVktEPn/comments?item_id=${ID}`);
+    const res = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/DQ1WY7tbkUIhRnRaIdyZ/comments?item_id=${ID}`);
     let output = [];
     const data = await res.json();
     const comments = document.querySelectorAll('.comments');
