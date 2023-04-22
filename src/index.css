@@ -59,6 +59,10 @@ h6 {
   isolation: isolate;
 }
 
+.headsup {
+  align-self: center;
+}
+
 .navbar {
   display: flex;
   justify-content: space-evenly;
@@ -175,6 +179,11 @@ h6 {
   color: red;
   font-size: 1.2em;
   list-style-type: none;
+}
+
+.likeCalculation {
+  display: flex;
+  align-self: flex-end;
 }
 
 .likenCount {
