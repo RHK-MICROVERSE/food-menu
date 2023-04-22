@@ -130,18 +130,4 @@ window.setTimeout(() => {
   });
 }, 3000);
 
-// submit.forEach((e) => {
-//   e.addEventListener("click", () => {
-//     console.log("working")
-//   })
-// })
-
-// document.querySelector(".logo").addEventListener("click", function() {
-//     document.querySelector(".popup").style.display = "flex"
-// })
-
-// })
-
-// })
-
 export default createPop;
